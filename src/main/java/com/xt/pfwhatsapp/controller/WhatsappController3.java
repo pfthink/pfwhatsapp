@@ -34,6 +34,23 @@ public class WhatsappController3 {
         return "OK";
     }
 
+    @GetMapping("/send_message")
+    public Object send_message() {
+        try {
+            // Create a new instance of WhatsappAPI
+            Whatsapp whatsapp = Whatsapp.lastConnection()
+                    .connect()
+                    .get();
+
+            //whatsapp.sendMessage();
+            log.info("Connect success,whatsapp:{}", whatsapp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "OK";
+    }
+
 
 }
 
